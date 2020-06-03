@@ -12,11 +12,11 @@ class MaxStack:
   def max(self):
     x = 0
     for item in self.stack:
+      if len(self.stack) == 0:
+        return None
       if item > x:
         x = max(item, x)
     return x
-    if len(self.stack) == 0:
-      return None
 
 s = MaxStack()
 s.push(1)
