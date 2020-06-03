@@ -8,15 +8,17 @@ def word_search(matrix, word):
       if word[i] == matrix[i][j]:
         for char in matrix[i][1+i:]:
           text +=char
-        print(text)
         if text == word[i:]:
           return True
         else:
           text = ""
-          for num,char in enumerate(range(len(word[i:]))):
-            text += matrix[num][i]
-            print(text) 
+          text1 = ""
+          for char in range(len(word[i:])):
+            text += matrix[char][i]
+            text1 += matrix[char][j]
           if text == word[i:]:
+            return True
+          elif text1 == word[i:]:
             return True
           else:
             return False
@@ -30,4 +32,3 @@ matrix = [
 ['A', 'N', 'O', 'B'],
 ['M', 'A', 'S', 'S']]
 print(word_search(matrix, 'FOAM'))
-# True
